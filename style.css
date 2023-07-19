@@ -1,17 +1,19 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 #gridContainer {
-    display: flex;
-    flex-direction: column;
-    height: 1000px;
-    width: 1000px;
+	display: flex;
+	flex-direction: column;
+	height: 1000px;
+	width: 1000px;
+	border: 50px;
+	border-color: black;
 }
 
 #gridContainer div{
-    flex: auto;
-    display: flex;
+	flex: auto;
+	display: flex;
 }

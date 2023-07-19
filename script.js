@@ -1,24 +1,42 @@
-/*create grid with for
-add event on hover
-create button to delete and recreate grid*/
-
 function createGrid(size){
-    for(let i = 0; i < size; i++){
-        const row = document.createElement("div");
+	if(size > 100){
+		alert("Grid too big!");
+		return;
+	}
 
-        for(let h = 0; h < size; h++){
-            const column = document.createElement("div");
-            column.classList.add("subSquare")
-            row.appendChild(column);
-        }
+	for(let i = 0; i < size; i++){
+		const row = document.createElement("div");
 
-        document.querySelector("#gridContainer").appendChild(row);
-    }
+		for(let h = 0; h < size; h++){
+			const column = document.createElement("div");
+			column.classList.add("subSquare");
+			column.addEventListener("mouseover", paintSquare);
+			row.appendChild(column);
+		}
+
+		gridContainer.appendChild(row);
+	}
+	console.log("The square is " + size + " * " + size);
+}
+
+function paintSquare (){
+	this.style.backgroundColor = "black";
+	console.log(this);
+}
+
+function removeGrid(){
+	while(gridContainer.hasChildNodes()){
+		gridContainer.removeChild(gridContainer.firstChild);
+	}
 }
 
 
-
+let gridContainer = document.querySelector("#gridContainer");
 let size = 16;
 
 createGrid(size);
-console.log("The square is " + size + " * " + size);
+
+document.querySelector("#resetButton").addEventListener("click",() => {
+	removeGrid();
+	createGrid(prompt("Insert grid size",16));
+})
