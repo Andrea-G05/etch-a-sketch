@@ -20,8 +20,17 @@ function createGrid(size){
 }
 
 function paintSquare (){
-	this.style.backgroundColor = "black";
+	this.style.backgroundColor = randomizeColor();
 	console.log(this);
+}
+
+function randomizeColor() {
+	let color = [];
+	for(let i = 0; i < 3; i++){
+		let rgbValue = Math.floor(Math.random() * 256);
+		color.push(rgbValue);
+	}
+	return `rgb(${color.join(",")})`
 }
 
 function removeGrid(){
