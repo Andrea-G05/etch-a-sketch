@@ -21,6 +21,19 @@ function createGrid(size){
 
 function paintSquare (){
 	this.style.backgroundColor = randomizeColor();
+
+	switch(this.style.opacity){
+		case "":
+			this.style.opacity = 0.1;
+			console.log(this.style.opacity);
+			break;
+		case "1":
+			break;
+		default:
+			this.style.opacity = (+this.style.opacity + 0.1);
+			break;
+	}
+
 	console.log(this);
 }
 
@@ -30,7 +43,8 @@ function randomizeColor() {
 		let rgbValue = Math.floor(Math.random() * 256);
 		color.push(rgbValue);
 	}
-	return `rgb(${color.join(",")})`
+
+	return `rgb(${color.join(",")})`;
 }
 
 function removeGrid(){
