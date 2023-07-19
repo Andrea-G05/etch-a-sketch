@@ -8,6 +8,7 @@ function createGrid(size){
 
         for(let h = 0; h < size; h++){
             const column = document.createElement("div");
+            column.classList.add("subSquare")
             row.appendChild(column);
         }
 
@@ -15,5 +16,9 @@ function createGrid(size){
     }
 }
 
-createGrid(16);
-console.log("a")
+
+
+let size = 16;
+
+createGrid(size);
+console.log("The square is " + size + " * " + size);
